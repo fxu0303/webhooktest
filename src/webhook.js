@@ -17,7 +17,8 @@ app.post('/', (req, res) => {
     if (req.query.token !== token) {
         return res.sendStatus(401);
     }
+    console.log(JSON.stringify(req.body))
     return res.end(`Received webhook: ${JSON.stringify(req.body)}`);
 });
 
-app.listen(3000, () => console.log('Webhook is listening'));
+app.listen(80, () => console.log('Webhook is listening'));
