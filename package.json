@@ -4,5 +4,9 @@
     },
     "scripts": {
         "start": "http-server src -p 6767"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "express": "^4.19.2"
     }
 }

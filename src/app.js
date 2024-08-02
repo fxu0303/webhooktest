@@ -1,4 +1,3 @@
-
 function getResult(){
     return new Date().toDateString();
 }
