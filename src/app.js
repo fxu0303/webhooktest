@@ -1,1 +1,6 @@
-console.log("Hello World");
+
+function getResult(){
+    return new Date().toDateString();
+}
+
+document.getElementById("result").innerHTML = getResult();
