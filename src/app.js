@@ -1,5 +1,18 @@
-function getResult(){
-    return new Date().toDateString();
+function startTime() {
+    const today = new Date();
+    let d = today.toDateString();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('timer').innerHTML = d + " " + h + ":" + m + ":" + s;
+    setTimeout(startTime, 1000);
 }
 
-document.getElementById("result").innerHTML = getResult();
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i
+    }; // add zero in front of numbers < 10
+    return i;
+}
