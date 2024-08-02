@@ -1,7 +1,6 @@
 
 function getResult(){
-    // return new Date().toDateString();
-    return 1+1
+    return new Date().toDateString();
 }
 
 document.getElementById("result").innerHTML = getResult();
