@@ -1,28 +1,23 @@
 'use strict';
 
+const config = require('../config.json')
 const express = require('express');
-
 const bodyParser = require('body-parser');
-
 const app = express().use(bodyParser.json()); // creates http server
-
-const token = 'VERIFICATION_TOKEN'; // type your verification token here
+let token = config.token;
 
 app.get('/', (req, res) => {
     if (req.query.token !== token) {
-        return res.sendStatus(401); // if not, return unauthorized error
+        return res.sendStatus(401);
     }
-    // return challenge
     return res.end(req.query.challenge);
 });
 
 app.post('/', (req, res) => {
     if (req.query.token !== token) {
-        return res.sendStatus(401); // if not, return unauthorized error
+        return res.sendStatus(401);
     }
     return res.end(`Received webhook: ${JSON.stringify(req.body)}`);
 });
-
-// app.listen() part should always be located in the last line of your code
 
 app.listen(3000, () => console.log('Webhook is listening'));
