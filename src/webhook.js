@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 const express = require('express');
 
 const bodyParser = require('body-parser');
@@ -10,7 +8,7 @@ const app = express().use(bodyParser.json()); // creates http server
 
 const token = 'VERIFICATION_TOKEN'; // type your verification token here
 
-app.get('/webhook', (req, res) => {
+app.get('/', (req, res) => {
     if (req.query.token !== token) {
         return res.sendStatus(401); // if not, return unauthorized error
     }
@@ -18,7 +16,7 @@ app.get('/webhook', (req, res) => {
     return res.end(req.query.challenge);
 });
 
-app.post('/webhook', (req, res) => {
+app.post('/', (req, res) => {
     if (req.query.token !== token) {
         return res.sendStatus(401); // if not, return unauthorized error
     }
